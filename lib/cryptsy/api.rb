@@ -16,7 +16,13 @@ module Cryptsy
         query["marketid"] = marketid if marketid
 
         response = self.class.get("/api.php", query: query)
-        JSON.parse(response.body)
+        response_body = nil
+        begin
+          response_body = JSON.parse(response.body)
+        rescue => e
+        end
+
+        response_body
       end
     end
 
@@ -39,7 +45,13 @@ module Cryptsy
                                     "Key" => @key,
                            },
                            body: post_data)
-        JSON.parse(response.body)
+        response_body = nil
+        begin
+          response_body = JSON.parse(response.body)
+        rescue => e
+        end
+
+        response_body
       end
 
       def auth_changed?(key, secret)
