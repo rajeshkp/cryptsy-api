@@ -20,6 +20,8 @@ module Cryptsy
         begin
           response_body = JSON.parse(response.body)
         rescue => e
+          # re-throw exception thrown from the server
+          raise
         end
 
         response_body
@@ -49,6 +51,8 @@ module Cryptsy
         begin
           response_body = JSON.parse(response.body)
         rescue => e
+          # re-throw exception thrown from the server
+          raise
         end
 
         response_body
