@@ -18,7 +18,7 @@ module Cryptsy
         response = self.class.get("/api.php", query: query)
         begin
           response_body = JSON.parse(response.body)
-          response = [true, response]
+          response = [true, response_body]
         rescue => e
           response = [false, e.response]
         end
@@ -48,7 +48,7 @@ module Cryptsy
                            body: post_data)
         begin
           response_body = JSON.parse(response.body)
-          response = [true, response]
+          response = [true, response_body]
         rescue => e
           response = [false, e.response]
         end
