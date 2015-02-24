@@ -20,7 +20,7 @@ module Cryptsy
           response_body = JSON.parse(response.body)
           response = [true, response_body]
         rescue => e
-          response = [false, e.response]
+          response = [false, e]
         end
 
         response
@@ -50,7 +50,7 @@ module Cryptsy
           response_body = JSON.parse(response.body)
           response = [true, response_body]
         rescue => e
-          response = [false, e.response]
+          response = [false, e]
         end
 
         response
